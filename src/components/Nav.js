@@ -6,10 +6,13 @@ const Nav = () => {
     const auth = localStorage.getItem("user");
     const navigate = useNavigate();
 
+    // console.log("auth", JSON.parse(auth?.data))
+
     const logout = () => {
         localStorage.clear();
         navigate("/signup")
     }
+
 
     return (
         <div>
@@ -59,7 +62,7 @@ const Nav = () => {
                         </li>
                         <li>
                             <Link onClick={logout} to={"/signup"}>
-                                Logout ({JSON.parse(auth).name})
+                                Logout ({JSON.parse(auth)?.name}  {JSON.parse(auth)?.data?.name})
                             </Link>
                         </li>
 

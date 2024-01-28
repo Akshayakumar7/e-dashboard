@@ -14,7 +14,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/product/${params?.id}`);
+            const response = await axios.get(`https://ecomm-rest-api.onrender.com/product/${params?.id}`);
             console.log(response.data);
             setProductName(response?.data?.name ?? '');
             setProductPrice(response?.data?.price ?? '');
@@ -34,7 +34,7 @@ const UpdateProduct = () => {
 
     const updateProduct = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/update/${params?.id}`, {
+            const response = await axios.put(`https://ecomm-rest-api.onrender.com/update/${params?.id}`, {
                 name: productName,
                 price: productPrice,
                 category: productCategory,

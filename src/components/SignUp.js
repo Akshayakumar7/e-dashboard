@@ -18,7 +18,7 @@ const SignUp = () => {
 
     const onClickSignup = async () => {
         try {
-            const response = await axios.post("http://localhost:4000/register", {
+            const response = await axios.post("https://ecomm-rest-api.onrender.com/register", {
                 name,
                 email,
                 password

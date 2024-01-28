@@ -7,7 +7,7 @@ const ProductList = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/products'); // Update with your actual API URL
+            const response = await axios.get('https://ecomm-rest-api.onrender.com/products'); // Update with your actual API URL
             setProducts(response.data ?? []);
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -23,7 +23,7 @@ const ProductList = () => {
 
     const onClickDelete = async (productId) => {
         try {
-            await axios.delete(`http://localhost:4000/delete/${productId}`).then((res) => {
+            await axios.delete(`https://ecomm-rest-api.onrender.com/delete/${productId}`).then((res) => {
                 alert("Product deleted successfully");
                 fetchProducts();
             })
@@ -36,7 +36,7 @@ const ProductList = () => {
     const onChangeSearchText = async (event) => {
         let searchKey = event.target.value;
         if (searchKey) {
-            const response = await axios.get(`http://localhost:4000/search/${searchKey}`); // Update with your actual API URL
+            const response = await axios.get(`https://ecomm-rest-api.onrender.com/search/${searchKey}`); // Update with your actual API URL
             if (response) {
                 setProducts(response.data ?? []);
             }
@@ -64,7 +64,7 @@ const ProductList = () => {
             </ul>
             {products?.length > 0 ? (
                 products.map((item, index) => (
-                    <ul>
+                    <ul key={index.toString()}>
                         <li>{index + 1}</li>
                         <li>{item?.name ?? ""}</li>
                         <li>{item?.price}</li>

@@ -18,7 +18,7 @@ const AddProducts = () => {
             return false
         }
         try {
-            const response = await axios.post("http://localhost:4000/add-product", {
+            const response = await axios.post("https://ecomm-rest-api.onrender.com/add-product", {
                 name: productName,
                 price: productPrice,
                 category: productCategory,
